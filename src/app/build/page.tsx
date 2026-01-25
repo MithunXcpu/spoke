@@ -69,7 +69,7 @@ export default function BuildPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b border-zinc-800 px-6 py-4">
+      <header className="border-b border-zinc-800 px-4 md:px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
@@ -79,14 +79,14 @@ export default function BuildPage() {
             </div>
             <span className="text-xl font-bold">Spoke</span>
           </Link>
-          <div className="text-sm text-zinc-500">
-            Step 1 of 3: Upload Screenshot
+          <div className="text-xs md:text-sm text-zinc-500">
+            Step 1 of 3
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 py-12">
+      <main className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-3">Upload your data</h1>
           <p className="text-zinc-400">
@@ -97,7 +97,7 @@ export default function BuildPage() {
         {/* Upload Zone */}
         {!image ? (
           <div
-            className={`border-2 border-dashed rounded-2xl p-12 text-center transition-colors ${
+            className={`border-2 border-dashed rounded-xl md:rounded-2xl p-6 md:p-12 text-center transition-colors ${
               isDragging
                 ? "border-cyan-400 bg-cyan-400/5"
                 : "border-zinc-700 hover:border-zinc-600"

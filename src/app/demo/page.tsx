@@ -97,38 +97,43 @@ export default function DemoPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b border-zinc-800 px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold">Spoke</span>
-          </Link>
+      <header className="border-b border-zinc-800 px-4 md:px-6 py-4">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <span className="text-xl font-bold">Spoke</span>
+            </Link>
+            <span className="md:hidden px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">
+              Demo
+            </span>
+          </div>
 
-          <div className="flex items-center gap-3">
-            <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 w-full md:w-auto">
+            <span className="hidden md:inline-block px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">
               Demo Mode
             </span>
-            <button onClick={exportJSON} className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm">
-              Export JSON
+            <button onClick={exportJSON} className="px-3 md:px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-xs md:text-sm">
+              JSON
             </button>
-            <button onClick={exportCSV} className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm">
-              Export CSV
+            <button onClick={exportCSV} className="px-3 md:px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-xs md:text-sm">
+              CSV
             </button>
-            <Link href="/build" className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-sm">
-              Try with your data
+            <Link href="/build" className="px-3 md:px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-xs md:text-sm">
+              Try yours
             </Link>
           </div>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8">
+      <main className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* Demo Banner */}
-        <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-2xl p-6 mb-8">
-          <div className="flex items-center gap-4">
+        <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
               <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -145,22 +150,23 @@ export default function DemoPage() {
         </div>
 
         {/* Output Type Selector */}
-        <div className="flex items-center gap-4 mb-8">
-          <span className="text-zinc-500 text-sm">View as:</span>
-          <div className="flex bg-zinc-900 rounded-lg p-1">
-            {(["tracker", "dashboard", "checklist"] as OutputType[]).map((type) => (
-              <button
-                key={type}
-                onClick={() => setOutputType(type)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors capitalize ${
-                  outputType === type ? "bg-cyan-500 text-white" : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                {type}
-              </button>
-            ))}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-6 md:mb-8">
+          <div className="flex items-center gap-3">
+            <span className="text-zinc-500 text-sm">View as:</span>
+            <div className="flex bg-zinc-900 rounded-lg p-1">
+              {(["tracker", "dashboard", "checklist"] as OutputType[]).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setOutputType(type)}
+                  className={`px-3 md:px-4 py-2 rounded-md text-xs md:text-sm font-medium transition-colors capitalize ${
+                    outputType === type ? "bg-cyan-500 text-white" : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="flex-1" />
           <span className="text-zinc-500 text-sm">{data.summary.totalRows} vendors</span>
         </div>
 
