@@ -3,6 +3,28 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Nav */}
+      <nav className="absolute top-0 left-0 right-0 px-6 py-4">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold">Spoke</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link href="/login" className="px-4 py-2 text-sm text-zinc-400 hover:text-white transition-colors">
+              Sign In
+            </Link>
+            <Link href="/dashboard" className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-sm transition-colors">
+              Dashboard
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <main className="flex flex-col items-center justify-center min-h-screen px-6 py-24">
         {/* Logo */}
