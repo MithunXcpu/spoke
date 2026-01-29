@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Spoke ⚡
+
+**Screenshot it. Describe it. Ship it.**
+
+Build internal tools in 60 seconds. Stop paying for SaaS tools you don't need - paste a screenshot of your data, tell us what you want, and get a working tool instantly.
+
+## Features
+
+- **Screenshot data extraction** - Paste screenshots from spreadsheets, CRMs, or any data source
+- **Natural language input** - Describe what you need in plain English
+- **Instant tool generation** - Get trackers, dashboards, or checklists
+- **Export options** - JSON, CSV, or shareable links
+
+## How It Works
+
+1. **Screenshot** - Paste a screenshot of your spreadsheet, CRM, or any data source
+2. **Describe** - Tell us what you need: "I want a dashboard with renewal alerts"
+3. **Ship** - Get a working tool in seconds, ready to use
+
+## Tech Stack
+
+- **Framework**: Next.js 16 with App Router
+- **AI**: Vision models for screenshot extraction
+- **Styling**: Tailwind CSS with dark theme
+- **Fonts**: Geist (optimized via next/font)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start building tools.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/           # Next.js app router pages
+│   ├── build/     # Tool builder interface
+│   ├── demo/      # Demo showcase
+│   └── dashboard/ # User dashboard
+├── components/    # Reusable UI components
+└── lib/           # Utilities and AI integration
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on Vercel at [spoke-pi.vercel.app](https://spoke-pi.vercel.app)
