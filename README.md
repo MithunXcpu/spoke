@@ -49,7 +49,7 @@ src/
 
 ## What broke and how I fixed it
 
-- **Vercel deploys failed on a missing secret.** `vercel.json` mapped `ANTHROPIC_API_KEY` to the legacy Vercel secret `@anthropic-api-key`, which didn't exist on the project, so builds stopped before they started. I removed the `env` mapping from `vercel.json` and set `ANTHROPIC_API_KEY` as a project environment variable in Vercel instead, which keeps the key out of the repo config and lets the deploy go through (commit `31ac69c`).
+- **Vercel deploys failed on a missing secret.** `vercel.json` mapped `ANTHROPIC_API_KEY` to the legacy Vercel secret `@anthropic-api-key`, which didn't exist on the project, so builds stopped before they started. I removed the `env` mapping from `vercel.json` so the key comes from the Vercel project's environment settings rather than repo config, and the deploy went through (commit `31ac69c`).
 
 ## Deployment
 
