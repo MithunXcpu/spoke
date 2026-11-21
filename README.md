@@ -2,6 +2,8 @@
 
 **Screenshot it. Describe it. Ship it.**
 
+**Live demo:** [spoke-pi.vercel.app](https://spoke-pi.vercel.app)
+
 Build internal tools in 60 seconds. Stop paying for SaaS tools you don't need - paste a screenshot of your data, tell us what you want, and get a working tool instantly.
 
 ## Features
@@ -44,6 +46,10 @@ src/
 ├── components/    # Reusable UI components
 └── lib/           # Utilities and AI integration
 ```
+
+## What broke and how I fixed it
+
+- **Vercel deploys failed on a missing secret.** `vercel.json` mapped `ANTHROPIC_API_KEY` to the legacy Vercel secret `@anthropic-api-key`, which didn't exist on the project, so builds stopped before they started. I removed the `env` mapping from `vercel.json` and set `ANTHROPIC_API_KEY` as a project environment variable in Vercel instead, which keeps the key out of the repo config and lets the deploy go through (commit `31ac69c`).
 
 ## Deployment
 
